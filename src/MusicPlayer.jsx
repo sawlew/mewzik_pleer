@@ -214,16 +214,21 @@ const MusicPlayer = () => {
   };
 
   const removeSong = (index) => {
-    setSongs((prevSongs) => prevSongs.filter((_, i) => i !== index));
-
-    if (index === currentSongIndex) {
-      setCurrentSongIndex(0);
-      setShouldPlay(false);
-      setIsPlaying(false);
-    } else if (index < currentSongIndex) {
-      setCurrentSongIndex((prevIndex) => prevIndex - 1);
+    const confirmRemoval = window.confirm("Are you sure you want to remove this song?");
+    
+    if (confirmRemoval) {
+      setSongs((prevSongs) => prevSongs.filter((_, i) => i !== index));
+  
+      if (index === currentSongIndex) {
+        setCurrentSongIndex(0);
+        setShouldPlay(false);
+        setIsPlaying(false);
+      } else if (index < currentSongIndex) {
+        setCurrentSongIndex((prevIndex) => prevIndex - 1);
+      }
     }
   };
+  
 
  
   return (
