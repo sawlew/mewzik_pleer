@@ -3,6 +3,7 @@ body {
     background-position: top center;
     background-repeat: no-repeat;
     background-size: cover;
+    overflow: hidden;
 }
 
 .playlistArea::-webkit-scrollbar{
