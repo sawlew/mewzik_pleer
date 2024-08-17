@@ -336,7 +336,7 @@ const MusicPlayer = () => {
                     </div>
                     <div className='absolute flex items-center justify-center gap-2 right-[2%] bottom-3'>
 
-                      <svg onClick={handleShuffle} xmlns="http://www.w3.org/2000/svg" className={`size-9 ${isShuffle ? 'opacity-1' : 'opacity-40'}`} viewBox="0 0 512 512">
+                      <svg onClick={handleShuffle} xmlns="http://www.w3.org/2000/svg" className={`size-9 cursor-pointer active:scale-[1.5] duration-200 ease-linear ${isShuffle ? 'opacity-1' : 'opacity-40'}`} viewBox="0 0 512 512">
                         <path fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth={32}
                           d="M400 304l48 48-48 48M400 112l48 48-48 48M64 352h85.19a80 80 0 0066.56-35.62L256 256" />
                         <path
@@ -345,7 +345,7 @@ const MusicPlayer = () => {
                       </svg>
 
                       {isRepeat ? 
-                      (<svg onClick={handleRepeat} fill='white' className='size-8' 
+                      (<svg onClick={handleRepeat} fill='white' className='size-8 cursor-pointer active:scale-[1.5] duration-200 ease-linear' 
                         height={32} viewBox="0 0 32 32" width={32} xmlns="http://www.w3.org/2000/svg">
                         <path d="m6 6h20.1719l-3.586-3.5859 1.4141-1.4141 6 6-6 6-1.4141-1.4141 3.586-3.5859h-20.1719v7h-2v-7a2.0024 2.0024 0 0 1 2-2z" />
                         <path d="m9.4141 20.4141-3.586 3.5859h20.1719v-7h2v7a2.0024 2.0024 0 0 1 -2 2h-20.1719l3.5859 3.5859-1.414 1.4141-6-6 6-6z" />
@@ -353,7 +353,7 @@ const MusicPlayer = () => {
                         <path d="m0 0h32v32h-32z" fill="none" />
                       </svg>)
                       : 
-                      (<svg onClick={handleRepeat} fill='white' className="size-8"
+                      (<svg onClick={handleRepeat} fill='white' className="size-8 opacity-40 cursor-pointer active:scale-[1.5] duration-200 ease-linear"
                         height={32} viewBox="0 0 32 32" width={32} xmlns="http://www.w3.org/2000/svg">
                       <path d="m6 6h20.1719l-3.586-3.5859 1.4141-1.4141 6 6-6 6-1.4141-1.4141 3.586-3.5859h-20.1719v7h-2v-7a2.0024 2.0024 0 0 1 2-2z" />
                       <path d="m9.4141 20.4141-3.586 3.5859h20.1719v-7h2v7a2.0024 2.0024 0 0 1 -2 2h-20.1719l3.5859 3.5859-1.414 1.4141-6-6 6-6z" />
