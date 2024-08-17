@@ -4,6 +4,7 @@ import { parseBlob } from 'music-metadata';
 import { Buffer } from 'buffer';
 import process from 'process';
 import coverPhoto from './assets/art.jpeg'
+import { useLottie } from './LottieContext';
 
 window.Buffer = Buffer;
 window.process = process;
@@ -29,6 +30,7 @@ const MusicPlayer = () => {
 
   const [isShuffle, setIsShuffle] = useState(false);
   const [isRepeat, setIsRepeat] = useState(false);
+  const { play, pause } = useLottie();
 
   useEffect(() => {
     if (audioRef.current) {
@@ -110,6 +112,7 @@ const MusicPlayer = () => {
     audioRef.current.play();
     setIsPlaying(true);
     setShouldPlay(true);
+    play();
   };
 
   const pauseSong = () => {
@@ -117,6 +120,7 @@ const MusicPlayer = () => {
 
     audioRef.current.pause();
     setIsPlaying(false);
+    pause();
   };
 
   const handleShuffle = () => {
@@ -207,6 +211,7 @@ const MusicPlayer = () => {
     setShouldPlay(true);
     setIsPlaying(true);
     console.log(index);
+    play();
   };
 
   const toggleFullscreen = () => {
