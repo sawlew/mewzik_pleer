@@ -31,6 +31,8 @@ const MusicPlayer = () => {
   const [isShuffle, setIsShuffle] = useState(false);
   const [isRepeat, setIsRepeat] = useState(false);
   const { play, pause } = useLottie();
+  const [notifier, setNotifier] = useState("");
+  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     if (audioRef.current) {
@@ -125,10 +127,16 @@ const MusicPlayer = () => {
 
   const handleShuffle = () => {
     setIsShuffle(!isShuffle);
+    setNotifier(!isShuffle ? "Shuffle On" : "Shuffle Off");
+    setVisible(true);
+    setTimeout(() => setVisible(false), 3000);
   };
 
   const handleRepeat = () => {
     setIsRepeat(!isRepeat);
+    setNotifier(!isRepeat ? "Repeat On" : "Repeat Off");
+    setVisible(true);
+    setTimeout(() => setVisible(false), 3000);
   };
 
   // const playNext = () => {
@@ -333,6 +341,9 @@ const MusicPlayer = () => {
                       </div>
 
                     
+                    </div>
+                    <div className='absolute right-[35px] bottom-[42px]'>
+                      <p className={`text-sm transition-opacity duration-1000 ${visible ? 'opacity-100' : 'opacity-0'}`}>{notifier}</p>
                     </div>
                     <div className='absolute flex items-center justify-center gap-2 right-[2%] bottom-3'>
 
